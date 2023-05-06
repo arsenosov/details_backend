@@ -17,7 +17,7 @@ data class Computer(
     val cpu: CPU? = null,
     val ram: List<RAM>? = null,
     val storage: List<Storage>? = null,
-    val graphics: GraphicsCard? = null,
+    val graphics: GPU? = null,
     val sound: SoundCard? = null,
     val speakers: Speakers? = null,
     val powerUnit: PowerUnit? = null
@@ -33,7 +33,7 @@ data class ComputerDto(
     val cpu: CPUDto? = null,
     val ram: List<RAMDto>? = null,
     val storage: List<StorageDto>? = null,
-    val graphics: GraphicsCardDto? = null,
+    val graphics: GPUDto? = null,
     val sound: SoundCardDto? = null,
     val speakers: SpeakersDto? = null,
     val powerUnit: PowerUnitDto? = null

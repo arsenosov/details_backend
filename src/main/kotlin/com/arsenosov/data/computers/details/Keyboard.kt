@@ -1,5 +1,7 @@
 package com.arsenosov.data.computers.details
 
+import com.arsenosov.data.computers.KeyboardInterface
+import com.arsenosov.data.computers.KeyboardType
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
@@ -11,4 +13,27 @@ data class Keyboard(
     val imageUrl: String? = null,
     val name: String,
     val producedBy: String,
+    val keysCount: Int,
+    val keyboardType: KeyboardType,
+    val keyboardInterface: KeyboardInterface,
 )
+
+@Serializable
+data class KeyboardDto(
+    val imageUrl: String? = null,
+    val name: String,
+    val producedBy: String,
+    val keysCount: Int,
+    val keyboardType: String,
+    val keyboardInterface: String,
+)
+
+fun Keyboard.toDtoEntity() =
+    KeyboardDto(
+        imageUrl, name, producedBy, keysCount, keyboardType.name, keyboardInterface.name
+    )
+
+fun KeyboardDto.toDbEntity() =
+    Keyboard(
+        null, imageUrl, name, producedBy, keysCount, KeyboardType.valueOf(keyboardType), KeyboardInterface.valueOf(keyboardInterface)
+    )

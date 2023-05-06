@@ -1,5 +1,6 @@
 package com.arsenosov.data.computers.details
 
+import com.arsenosov.data.computers.GraphicsOutput
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
@@ -11,25 +12,21 @@ data class Monitor(
     val imageUrl: String? = null,
     val name: String,
     val producedBy: String,
-    val diagonal: Float,
+    val diagonal: Float, // cm
     val resolution: String,
-    val refreshRate: Float,
+    val refreshRate: Float, // Hz
     val dpi: Float,
-    val outputType: MonitorOutput
+    val outputType: GraphicsOutput,
 )
-
-enum class MonitorOutput {
-    HDMI, VGA, DVI, USB, DisplayPort
-}
 
 @Serializable
 data class MonitorDto(
     val imageUrl: String? = null,
     val name: String,
     val producedBy: String,
-    val diagonal: Float,
+    val diagonal: Float, // cm
     val resolution: String,
-    val refreshRate: Float,
+    val refreshRate: Float, // Hz
     val dpi: Float,
     val outputType: String
 )
@@ -41,5 +38,5 @@ fun Monitor.toDtoEntity() =
 
 fun MonitorDto.toDbEntity() =
     Monitor(
-        null, imageUrl, name, producedBy, diagonal, resolution, refreshRate, dpi, MonitorOutput.valueOf(outputType)
+        null, imageUrl, name, producedBy, diagonal, resolution, refreshRate, dpi, GraphicsOutput.valueOf(outputType)
     )
