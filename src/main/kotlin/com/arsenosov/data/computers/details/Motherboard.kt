@@ -1,9 +1,6 @@
 package com.arsenosov.data.computers.details
 
-import com.arsenosov.data.computers.CPUSocket
-import com.arsenosov.data.computers.MotherboardFormFactor
-import com.arsenosov.data.computers.RAMTechnology
-import com.arsenosov.data.computers.StorageOutput
+import com.arsenosov.data.computers.*
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
@@ -22,6 +19,7 @@ data class Motherboard(
     val formFactor: MotherboardFormFactor,
     val clockSpeed: Int, // GHz
     val storageOutput: StorageOutput,
+    val expansionSlots: List<ExpansionSlot>,
 )
 
 @Serializable
@@ -36,14 +34,15 @@ data class MotherboardDto(
     val formFactor: String,
     val clockSpeed: Int,
     val storageOutput: String,
+    val expansionSlots: List<String>,
 )
 
 fun Motherboard.toDtoEntity() =
     MotherboardDto(
-        imageUrl, name, producedBy, cpuSocket.name, memoryTechnology.name, memorySlots, chipset, formFactor.name, clockSpeed, storageOutput.name
+        imageUrl, name, producedBy, cpuSocket.name, memoryTechnology.name, memorySlots, chipset, formFactor.name, clockSpeed, storageOutput.name, expansionSlots.map { it.name }
     )
 
 fun MotherboardDto.toDbEntity() =
     Motherboard(
-        null, imageUrl, name, producedBy, CPUSocket.valueOf(cpuSocket), RAMTechnology.valueOf(memoryTechnology), memorySlots, chipset, MotherboardFormFactor.valueOf(formFactor), clockSpeed, StorageOutput.valueOf(storageOutput)
+        null, imageUrl, name, producedBy, CPUSocket.valueOf(cpuSocket), RAMTechnology.valueOf(memoryTechnology), memorySlots, chipset, MotherboardFormFactor.valueOf(formFactor), clockSpeed, StorageOutput.valueOf(storageOutput), expansionSlots.map { ExpansionSlot.valueOf(it) }
     )

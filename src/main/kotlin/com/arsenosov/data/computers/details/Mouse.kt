@@ -25,6 +25,14 @@ data class MouseDto(
     val buttons: Int,
 )
 
+@Serializable
+data class MouseNoImage(
+    val name: String,
+    val producedBy: String,
+    val mouseInterface: String,
+    val buttons: Int,
+)
+
 fun Mouse.toDtoEntity() =
     MouseDto(
         imageUrl, name, producedBy, mouseInterface.name, buttons
@@ -33,4 +41,9 @@ fun Mouse.toDtoEntity() =
 fun MouseDto.toDbEntity() =
     Mouse(
         null, imageUrl, name, producedBy, MouseInterface.valueOf(mouseInterface), buttons
+    )
+
+fun MouseNoImage.toDtoEntity() =
+    MouseDto(
+        null, name, producedBy, mouseInterface, buttons
     )

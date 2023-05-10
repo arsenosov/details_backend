@@ -17,6 +17,7 @@ data class GPU(
     val memoryType: GPUMemory,
     val clockSpeed: Int, // GHz
     val output: GraphicsOutput,
+    val power: Int, // W
 )
 
 @Serializable
@@ -28,14 +29,15 @@ data class GPUDto(
     val memoryType: String,
     val clockSpeed: Int, // GHz
     val output: String,
+    val power: Int, // W
 )
 
 fun GPU.toDtoEntity() =
     GPUDto(
-        imageUrl, name, producedBy, memory, memoryType.name, clockSpeed, output.name
+        imageUrl, name, producedBy, memory, memoryType.name, clockSpeed, output.name, power
     )
 
 fun GPUDto.toDbEntity() =
     GPU(
-        null, imageUrl, name, producedBy, memory, GPUMemory.valueOf(memoryType), clockSpeed, GraphicsOutput.valueOf(output)
+        null, imageUrl, name, producedBy, memory, GPUMemory.valueOf(memoryType), clockSpeed, GraphicsOutput.valueOf(output), power
     )

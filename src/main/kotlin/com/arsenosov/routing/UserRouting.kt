@@ -78,6 +78,9 @@ fun Application.configureUserRouting(service: DbService) {
                     call.respond(HttpStatusCode.UnsupportedMediaType)
                 }
             }
+            delete("/deleteById") {
+
+            }
         }
     }
 }

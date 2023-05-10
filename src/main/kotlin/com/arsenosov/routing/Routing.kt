@@ -15,4 +15,5 @@ fun Application.configureRouting() {
     val service = DbService()
     configureUserRouting(service)
     configureComputerRouting(service)
+    configureCabinetRouting(service)
 }

@@ -1,7 +1,7 @@
 package com.arsenosov.data.computers
 
 enum class GraphicsOutput {
-    HDMI, VGA, DVI, USB, DisplayPort
+    HDMI, VGA, DVI, USB, DP
 }
 
 enum class CPUSocket {
@@ -21,7 +21,7 @@ enum class StorageType {
 }
 
 enum class StorageOutput {
-    PATA, SATA, ESATA, FireWire, SCSI, SAS, USB, THUNDERBOLT
+    PATA, SATA, ESATA, FIREWIRE, SCSI, SAS, USB, THUNDERBOLT
 }
 
 enum class KeyboardInterface {
@@ -39,4 +39,16 @@ enum class MouseInterface {
 
 enum class GPUMemory {
     GDDR, DDR
+}
+
+enum class AudioOutputMode {
+    MONO, STEREO, SURROUND
+}
+
+enum class AudioOutput {
+    PCI, FIREWIRE, USB, PCIE
+}
+
+enum class ExpansionSlot {
+    AGP, AMR, CNR, EISA, ISA, PCI, PCIE, VESA
 }

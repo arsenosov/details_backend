@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
 
-/*@Serializable
+@Serializable
 data class Computer(
     @BsonId
     val id: Id<Computer>? = null,
@@ -18,9 +18,7 @@ data class Computer(
     val ram: List<RAM>? = null,
     val storage: List<Storage>? = null,
     val graphics: GPU? = null,
-    val sound: SoundCard? = null,
-    val speakers: Speakers? = null,
-    val powerUnit: PowerUnit? = null
+    val powerUnit: PowerUnit? = null,
 )
 
 @Serializable
@@ -34,8 +32,6 @@ data class ComputerDto(
     val ram: List<RAMDto>? = null,
     val storage: List<StorageDto>? = null,
     val graphics: GPUDto? = null,
-    val sound: SoundCardDto? = null,
-    val speakers: SpeakersDto? = null,
     val powerUnit: PowerUnitDto? = null
 )
 
@@ -43,16 +39,14 @@ fun Computer.toDtoEntity() =
     ComputerDto(
         imageUrl,
         monitor?.toDtoEntity(),
-        keyboard,
-        mouse,
-        motherboard,
-        cpu,
-        ram,
+        keyboard?.toDtoEntity(),
+        mouse?.toDtoEntity(),
+        motherboard?.toDtoEntity(),
+        cpu?.toDtoEntity(),
+        ram?.map { it.toDtoEntity() },
         storage?.map { it.toDtoEntity() },
-        graphics,
-        sound,
-        speakers,
-        powerUnit
+        graphics?.toDtoEntity(),
+        powerUnit?.toDtoEntity(),
     )
 
 fun ComputerDto.toDbEntity() =
@@ -60,15 +54,12 @@ fun ComputerDto.toDbEntity() =
         null,
         imageUrl,
         monitor?.toDbEntity(),
-        keyboard,
-        mouse,
-        motherboard,
-        cpu,
-        ram,
+        keyboard?.toDbEntity(),
+        mouse?.toDbEntity(),
+        motherboard?.toDbEntity(),
+        cpu?.toDbEntity(),
+        ram?.map { it.toDbEntity() },
         storage?.map { it.toDbEntity() },
-        graphics,
-        sound,
-        speakers,
-        powerUnit
+        graphics?.toDbEntity(),
+        powerUnit?.toDbEntity(),
     )
-*/
