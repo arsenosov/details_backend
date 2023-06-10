@@ -1,9 +1,9 @@
 package com.arsenosov.routing
 
 import com.arsenosov.data.DbService
-import com.arsenosov.data.UserDto
-import com.arsenosov.data.toDbEntity
-import com.arsenosov.data.toDtoEntity
+import com.arsenosov.data.organisations.UserDto
+import com.arsenosov.data.organisations.toDbEntity
+import com.arsenosov.data.organisations.toDtoEntity
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*

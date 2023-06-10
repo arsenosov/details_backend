@@ -1,6 +1,6 @@
 package com.arsenosov.data.computers.details
 
-import com.arsenosov.data.computers.MouseInterface
+import com.arsenosov.data.MouseInterface
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id

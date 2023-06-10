@@ -1,7 +1,7 @@
 package com.arsenosov.data.computers.details
 
-import com.arsenosov.data.computers.GPUMemory
-import com.arsenosov.data.computers.GraphicsOutput
+import com.arsenosov.data.GPUMemory
+import com.arsenosov.data.GraphicsOutput
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id

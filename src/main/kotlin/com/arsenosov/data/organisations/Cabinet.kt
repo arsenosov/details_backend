@@ -1,5 +1,9 @@
-package com.arsenosov.data.computers
+package com.arsenosov.data.organisations
 
+import com.arsenosov.data.computers.Computer
+import com.arsenosov.data.computers.ComputerDto
+import com.arsenosov.data.computers.toDbEntity
+import com.arsenosov.data.computers.toDtoEntity
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id

@@ -1,10 +1,7 @@
 package com.arsenosov.routing
 
 import com.arsenosov.data.DbService
-import com.arsenosov.data.UserDto
-import com.arsenosov.data.computers.*
-import com.arsenosov.data.toDbEntity
-import com.arsenosov.data.toDtoEntity
+import com.arsenosov.data.organisations.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
@@ -18,7 +15,7 @@ fun Application.configureCabinetRouting(service: DbService) {
         route("/cabinet") {
             post("/add") {
                 val cabinet: CabinetDto = try {
-                    call.receive<CabinetDto>()
+                    call.receive()
                 } catch (e: ContentTransformationException) {
                     call.receive<CabinetEmpty>().toDtoEntity()
                 }

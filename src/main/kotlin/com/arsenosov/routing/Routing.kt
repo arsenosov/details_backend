@@ -16,4 +16,5 @@ fun Application.configureRouting() {
     configureUserRouting(service)
     configureComputerRouting(service)
     configureCabinetRouting(service)
+    configureConnectionRouting(service)
 }

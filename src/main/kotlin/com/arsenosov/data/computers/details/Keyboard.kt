@@ -1,7 +1,7 @@
 package com.arsenosov.data.computers.details
 
-import com.arsenosov.data.computers.KeyboardInterface
-import com.arsenosov.data.computers.KeyboardType
+import com.arsenosov.data.KeyboardInterface
+import com.arsenosov.data.KeyboardType
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id

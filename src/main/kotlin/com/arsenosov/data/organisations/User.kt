@@ -1,4 +1,4 @@
-package com.arsenosov.data
+package com.arsenosov.data.organisations
 
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId

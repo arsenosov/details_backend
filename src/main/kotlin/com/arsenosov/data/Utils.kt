@@ -1,4 +1,4 @@
-package com.arsenosov.data.computers
+package com.arsenosov.data
 
 enum class GraphicsOutput {
     HDMI, VGA, DVI, USB, DP
@@ -39,14 +39,6 @@ enum class MouseInterface {
 
 enum class GPUMemory {
     GDDR, DDR
-}
-
-enum class AudioOutputMode {
-    MONO, STEREO, SURROUND
-}
-
-enum class AudioOutput {
-    PCI, FIREWIRE, USB, PCIE
 }
 
 enum class ExpansionSlot {

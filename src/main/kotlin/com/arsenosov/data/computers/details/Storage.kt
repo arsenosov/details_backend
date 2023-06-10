@@ -1,7 +1,7 @@
 package com.arsenosov.data.computers.details
 
-import com.arsenosov.data.computers.StorageOutput
-import com.arsenosov.data.computers.StorageType
+import com.arsenosov.data.StorageOutput
+import com.arsenosov.data.StorageType
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id

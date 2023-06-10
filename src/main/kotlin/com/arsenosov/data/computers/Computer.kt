@@ -19,10 +19,12 @@ data class Computer(
     val storage: List<Storage>? = null,
     val graphics: GPU? = null,
     val powerUnit: PowerUnit? = null,
+    val case: Case? = null,
 )
 
 @Serializable
 data class ComputerDto(
+    val id: String,
     val imageUrl: String? = null,
     val monitor: MonitorDto? = null,
     val keyboard: KeyboardDto? = null,
@@ -32,11 +34,13 @@ data class ComputerDto(
     val ram: List<RAMDto>? = null,
     val storage: List<StorageDto>? = null,
     val graphics: GPUDto? = null,
-    val powerUnit: PowerUnitDto? = null
+    val powerUnit: PowerUnitDto? = null,
+    val case: CaseDto? = null,
 )
 
 fun Computer.toDtoEntity() =
     ComputerDto(
+        id.toString(),
         imageUrl,
         monitor?.toDtoEntity(),
         keyboard?.toDtoEntity(),
@@ -47,6 +51,7 @@ fun Computer.toDtoEntity() =
         storage?.map { it.toDtoEntity() },
         graphics?.toDtoEntity(),
         powerUnit?.toDtoEntity(),
+        case?.toDtoEntity(),
     )
 
 fun ComputerDto.toDbEntity() =
@@ -62,4 +67,5 @@ fun ComputerDto.toDbEntity() =
         storage?.map { it.toDbEntity() },
         graphics?.toDbEntity(),
         powerUnit?.toDbEntity(),
+        case?.toDbEntity(),
     )
